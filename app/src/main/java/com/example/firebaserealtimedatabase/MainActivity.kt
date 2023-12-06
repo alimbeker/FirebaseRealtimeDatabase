@@ -14,10 +14,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        val db = FirebaseDatabase.getInstance()
         binding.save.setOnClickListener {
-            val db = FirebaseDatabase.getInstance()
-            db.getReference("").setValue()
+
+            db.getReference("Word").setValue("Hi!")
+        }
+
+        binding.get.setOnClickListener {
+
         }
 
 
