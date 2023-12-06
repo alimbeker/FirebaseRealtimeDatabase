@@ -2,6 +2,7 @@ package com.example.firebaserealtimedatabase
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.example.firebaserealtimedatabase.databinding.ActivityMainBinding
 import com.google.firebase.Firebase
 import com.google.firebase.database.FirebaseDatabase
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val db = FirebaseDatabase.getInstance()
         binding.save.setOnClickListener {
 
-            db.getReference("Word").setValue("Hi!")
+            db.getReference("Word").setValue("Hello")
         }
 
         binding.get.setOnClickListener {
@@ -26,4 +27,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
 }
