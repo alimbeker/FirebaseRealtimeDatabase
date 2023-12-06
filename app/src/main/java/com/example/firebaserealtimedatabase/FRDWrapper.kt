@@ -9,6 +9,8 @@ abstract class FRDWrapper<T> {
     private val db = FirebaseDatabase.getInstance()
 
     protected abstract fun getTableName(): String
+    protected abstract fun getClassType(): Class<T>
+
 
     private val _getDataLiveData = MutableLiveData<T?>()
     val getDataLiveData: LiveData<T?> = _getDataLiveData
@@ -20,6 +22,13 @@ abstract class FRDWrapper<T> {
             error?.let {
                 Log.e("FRDWrapper", it.message)
             }
+        }
+    }
+
+
+    fun getData() {
+        db.getReference(getTableName()).get().addOnSuccessListener {
+            _getDataLiveData.postValue(it.getValue(getClassType()))
         }
     }
 
