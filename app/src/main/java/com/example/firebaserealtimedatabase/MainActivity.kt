@@ -15,10 +15,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+
         val db = FirebaseDatabase.getInstance()
         binding.save.setOnClickListener {
 
-            db.getReference("Word").setValue("Hello")
+
         }
 
         binding.get.setOnClickListener {
@@ -30,3 +33,17 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
+
+data class User(
+    val id: String? = null,
+    val name: String? = null,
+    val age: Int? = null,
+    val address: Address? = null,
+    val hobbies: List<String>? = null
+)
+
+data class Address(
+    val city: String? = null,
+    val street: String? = null
+)
