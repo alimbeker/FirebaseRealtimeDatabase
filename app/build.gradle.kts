@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -49,4 +53,6 @@ dependencies {
    //Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-database")
+
 }
